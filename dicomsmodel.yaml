@@ -129,106 +129,106 @@ classes:
         - study_sessions:
             range: StudySession
             multivalued: True
-    
-  SeqInfo:
-    description: Information about an MRI sequence, based on HeuDiConv SeqInfo
-    attributes:
-      total_files_till_now:
-        description: Total number of files processed till now
-        range: integer
-      example_dcm_file:
-        description: Example DICOM file
-        range: string
-      series_id:
-        description: Series identifier
-        range: string
-      dcm_dir_name:
-        description: DICOM directory name
-        range: string
-      series_files:
-        description: Number of files in the series
-        range: integer
-      unspecified:
-        description: Unspecified field
-        range: string
-      dim1:
-        description: First dimension
-        range: integer
-      dim2:
-        description: Second dimension
-        range: integer
-      dim3:
-        description: Third dimension
-        range: integer
-      dim4:
-        description: Fourth dimension
-        range: integer
-      TR:
-        description: Repetition Time
-        range: float
-      TE:
-        description: Echo Time
-        range: float
-      protocol_name:
-        description: Protocol name
-        range: string
-      is_motion_corrected:
-        description: Whether motion correction was applied
-        range: boolean
-      is_derived:
-        description: Whether this is a derived dataset
-        range: boolean
-      patient_id:
-        description: Patient identifier
-        range: string
-        required: false
-      study_description:
-        description: Description of the study
-        range: string
-      referring_physician_name:
-        description: Name of the referring physician
-        range: string
-      series_description:
-        description: Description of the series
-        range: string
-      sequence_name:
-        description: Name of the sequence
-        range: string
-      image_type:
-        description: Type of image
-        multivalued: true
-        range: string
-      accession_number:
-        description: Accession number
-        range: string
-      patient_age:
-        description: Age of the patient
-        range: string
-        required: false
-      patient_sex:
-        description: Sex of the patient
-        range: string
-        required: false
-      date:
-        description: Date of acquisition
-        range: string
-        required: false
-      series_uid:
-        description: Unique identifier for the series
-        range: string
-        required: false
-      time:
-        description: Time of acquisition
-        range: string
-        required: false
-      custom:
-        description: Custom data field
-        range: string
-        required: false
-      patient_weight:
-        description: Weight of the patient
-        range: float
-        required: false
+
+    SeqInfo:
+      description: Information about an MRI sequence, based on HeuDiConv SeqInfo
+      attributes:
+        total_files_till_now:
+          description: Total number of files processed till now
+          range: integer
+        example_dcm_file:
+          description: Example DICOM file
+          range: string
+        series_id:
+          description: Series identifier
+          range: string
+        dcm_dir_name:
+          description: DICOM directory name
+          range: string
+        series_files:
+          description: Number of files in the series
+          range: integer
+        unspecified:
+          description: Unspecified field
+          range: string
+        dim1:
+          description: First dimension
+          range: integer
+        dim2:
+          description: Second dimension
+          range: integer
+        dim3:
+          description: Third dimension
+          range: integer
+        dim4:
+          description: Fourth dimension
+          range: integer
+        TR:
+          description: Repetition Time
+          range: float
+        TE:
+          description: Echo Time
+          range: float
+        protocol_name:
+          description: Protocol name
+          range: string
+        is_motion_corrected:
+          description: Whether motion correction was applied
+          range: boolean
+        is_derived:
+          description: Whether this is a derived dataset
+          range: boolean
+        patient_id:
+          description: Patient identifier
+          range: string
+          required: false
+        study_description:
+          description: Description of the study
+          range: string
+        referring_physician_name:
+          description: Name of the referring physician
+          range: string
+        series_description:
+          description: Description of the series
+          range: string
+        sequence_name:
+          description: Name of the sequence
+          range: string
+        image_type:
+          description: Type of image
+          multivalued: true
+          range: string
+        accession_number:
+          description: Accession number
+          range: string
+        patient_age:
+          description: Age of the patient
+          range: string
+          required: false
+        patient_sex:
+          description: Sex of the patient
+          range: string
+          required: false
+        date:
+          description: Date of acquisition
+          range: string
+          required: false
+        series_uid:
+          description: Unique identifier for the series
+          range: string
+          required: false
+        time:
+          description: Time of acquisition
+          range: string
+          required: false
+        custom:
+          description: Custom data field
+          range: string
+          required: false
+        patient_weight:
+          description: Weight of the patient
+          range: float
+          required: false
 
 enums:
   Tag:
