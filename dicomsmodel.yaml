@@ -88,7 +88,7 @@ classes:
       - path
       - date
       - study    # a study this set was associated with at DICOM level, could be edited
-      - subject
+      - subject_id  # Participant.id
     attributes:
       series:
         range: DICOMSeries
@@ -162,7 +162,7 @@ classes:
       is_derived:
         description: Whether this is a derived dataset
         range: boolean
-      patient_id:
+      patient_id:  # TODO: this is our Participant.id
         description: Patient identifier
         range: string
         required: false
@@ -185,11 +185,11 @@ classes:
       accession_number:
         description: Accession number
         range: string
-      patient_age:
+      patient_age:  # TODO: just age?
         description: Age of the patient
         range: string
         required: false
-      patient_sex:
+      patient_sex:  # TODO: just sex?
         description: Sex of the patient
         range: string
         required: false
@@ -209,7 +209,7 @@ classes:
       custom:
         description: Custom data field
         required: false
-      patient_weight:
+      patient_weight:  # TODO: just weight? map to exam card
         description: Weight of the patient
         range: float
         required: false
@@ -217,19 +217,30 @@ classes:
 slots:
   first_name:
   last_name:
+  age:
   alias:
+  date:
+    range: date
   email:
+  gender:
   id:
   codename:
   anon_id:
         ## TODO: might need more clarification
     description: ID of the subject in the study (e.g. '01')
     recommended: true
+  session:
+  subject:
+  study:
   tags:
     range: Tag
     multivalued: true
+  subject_id:
+  path:
   paths:
     multivalued: true
+  weight:
+    range: float
 enums:
   Tag:
     permissible_values:
