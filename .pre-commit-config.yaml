@@ -1,21 +1,21 @@
 # See https://pre-commit.com for more information
 # See https://pre-commit.com/hooks.html for more hooks
 repos:
--   repo: https://github.com/pre-commit/pre-commit-hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.0.1
     hooks:
-    -   id: trailing-whitespace
-    -   id: end-of-file-fixer
-    -   id: check-yaml
-    -   id: check-added-large-files
--   repo: https://github.com/psf/black
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+  - repo: https://github.com/psf/black
     rev: 22.3.0
     hooks:
-    -   id: black
--   repo: https://github.com/codespell-project/codespell
+      - id: black
+  - repo: https://github.com/codespell-project/codespell
     rev: v2.4.1
     hooks:
-    -   id: codespell
+      - id: codespell
         exclude: ^(dandi/_version\.py|dandi/due\.py|versioneer\.py)$
         additional_dependencies:
-        - tomli
+          - tomli
