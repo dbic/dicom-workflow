@@ -57,18 +57,18 @@ Some of those might be "detected" and prevent automatic conversion requiring hum
 TODO:
 - check that "Additional info" textedit box on "Patient registration":
   - where in DICOM?
-  - could be edited for resubmission e.g. upon fixin accession #? 
+  - could be edited for resubmission e.g. upon fixing accession #?
 
 - Rescanning of previously scanned
   - ses X was rescanned again (and may be already converted)
-      - TODO: see how to annotate at MRI console level to "automate" 
+      - TODO: see how to annotate at MRI console level to "automate"
   - partial rescanning: only some sequences from new session to be added to old one
   - ~~partial rescanning within another session~~
 - Human entry issues
   - wrong accession number
     - resolution: fix on MRI console, resubmit to PACS, gets a new folder, old folder deleted by admin some time
   - session indicator is absent in first scans but then introduced
-  - session indicator is wrong 
+  - session indicator is wrong
       - should be 02 but was 01 and 01 was already collected - we can detect
       - should be 02 but was 03 -- is 02 missing?
 - Magnet screw up
@@ -78,8 +78,8 @@ TODO:
 
 - automated mapping of DBIC Subject IDs and per-study IDs
 
-  we have ad-hoc script: https://github.com/nipy/heudiconv/blob/master/utils/anon-cmd 
-  
+  we have ad-hoc script: https://github.com/nipy/heudiconv/blob/master/utils/anon-cmd
+
 # Modes of operation
 
 - Convert only what project curator approved for conversion (may be with fixups)
@@ -96,14 +96,14 @@ Trickier use-cases
 ## Potential "alternative" modularization
 
 Convert each accession into independent BIDS dataset to later be collated into
-a composit "study" dataset.  This is the approach of A2CPS and somewhat of the [Allen Institute of Neural Dynamics](https://github.com/bids-standard/bids-2-devel/issues/60).  This aligns with potential developments in BIDS
+a composite "study" dataset.  This is the approach of A2CPS and somewhat of the [Allen Institute of Neural Dynamics](https://github.com/bids-standard/bids-2-devel/issues/60).  This aligns with potential developments in BIDS
 
-- https://github.com/bids-standard/bids-2-devel/issues/59 
+- https://github.com/bids-standard/bids-2-devel/issues/59
 
 Pros:
 
 - simplifies session processing (no need to mess with filtering for fmriprep execution etc)
-  - fmriprep needs ideally multiple sessions at once 
+  - fmriprep needs ideally multiple sessions at once
 - allows for composition into multiple datasets
 
 Cons:
@@ -111,7 +111,7 @@ Cons:
 - needs additional "aggregation" step
 - no immediate bids-validator across all subject/sessions
 - if DataLad'ified
-  - might have merge conflicts in top level files etc so would require 
+  - might have merge conflicts in top level files etc so would require
     additional tooling to do merge correctly
 
 ## Reuse of accessions or sequences in multiple datasets
@@ -121,10 +121,10 @@ E.g.
 - Yarik's phantom study collected anatomicals from some studies
   - pretty much conversion script needs to be given a set of scans,
     without full accession folders
-- Converting/importing a particualr anatomical from another study/session
+- Converting/importing a particular anatomical from another study/session
   into another where it was not collected
   - allow for specific sequence(s) to be converted into a specific study
-  
+
 ## More elaborate DICOMs listing (former step 1)
 
 ```yaml=
@@ -132,7 +132,7 @@ E.g.
 ```
 
 
-    
+
 
 ## Study/datasets level configurations
 
@@ -142,11 +142,11 @@ E.g.
 - decisions on IntendedFor
     - for a specific subj/session to relax/change intendedfor assignment
     - some groups have other ideas on how to assign fieldmaps (e.g. lower noise etc)
-- BIDS-apps etc -- for later. May be in conjunction with https://github.com/nipoppy/nipoppy 
+- BIDS-apps etc -- for later. May be in conjunction with https://github.com/nipoppy/nipoppy
 
 ## Helpers to develop to "lay it out" over our data
 
 - given collected DICOMs, populate the DB (so replace our adhoc lists)
-  - if already a known accession - ERROR for now. Alternatives: is it a duplicate or partial duplicate etc 
+  - if already a known accession - ERROR for now. Alternatives: is it a duplicate or partial duplicate etc
 - given a converted BIDS dataset, adjust records for its accessions etc within our "DB"
-  - we need to allow for "old style" (project less organization) and new, so explicit **path** might be needed 
+  - we need to allow for "old style" (project less organization) and new, so explicit **path** might be needed

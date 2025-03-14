@@ -19,7 +19,7 @@ classes:
 
     Person:
         class_uri: schema:Person
-        slots: 
+        slots:
         - first_name
         - last_name
         - alias  # typically just last name?
@@ -33,7 +33,7 @@ classes:
     Experimenter:
       description: Who leads the experiment (e.g. a student)
       is_a: Person
-    
+
     ## TODO: may be make it "project"
     Study:
       description: The actual experiment study
@@ -52,12 +52,12 @@ classes:
         sessions:
           range: StudySession
           multivalued: True
-          
+
     Participant:
       slots:
       - id   # DBIC id (e.g. sid000323)
       - gender
-          
+
     StudyParticipant:
       is_a: Participant
       slots:
@@ -69,7 +69,7 @@ classes:
         sessions:
           range: string
           multivalued: True
-    
+
     StudySession:
       slots:
       - age
@@ -87,7 +87,7 @@ classes:
       slots:
         - path
         - date
-        - study  # a study this set was associated with at DICOM level, could be edited 
+        - study  # a study this set was associated with at DICOM level, could be edited
         - subject
       attributes:
         series:
@@ -150,7 +150,7 @@ classes:
         TR:
           description: Repetition Time
           range: float
-        TE:
+        TE:  # codespell:ignore
           description: Echo Time
           range: float
         protocol_name:
@@ -246,4 +246,3 @@ enums:
       BIDSIFY:
       REBIDSIFY:
       REMOVE_BIDSIFIED:
-      

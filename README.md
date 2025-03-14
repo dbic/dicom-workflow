@@ -9,4 +9,3 @@ TODOs:
       error    In classes > StudySession > slots > [3]: {'tags': {'range': 'Tag', 'multivalued': True}} is not of type 'string'  (valid-schema)
       error    In classes > DICOMSeries > slots > [0]: {'paths': {'multivalued': True}} is not of type 'string'  (valid-schema)
       error    In classes > Skippable > attributes > skip: Additional properties are not allowed ('default' was unexpected)  (valid-schema)
-
