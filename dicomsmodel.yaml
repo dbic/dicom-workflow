@@ -194,17 +194,17 @@ classes:
           range: string
           required: false
         date:
-          description: Date of acquisition
-          range: string
+          description: "Date of acquisition (TODO: ensure iso format)"
+          range: date
           required: false
         series_uid:
           description: Unique identifier for the series
           range: string
           required: false
         time:
-          description: Time of acquisition
+          description: "Time of acquisition (TODO: ensure iso format)"
           # TODO: add regex for time
-          range: string
+          range: time
           required: false
         custom:
           description: Custom data field
