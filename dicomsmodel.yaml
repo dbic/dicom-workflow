@@ -6,20 +6,9 @@ license: https://creativecommons.org/publicdomain/zero/1.0/
 imports:
   - linkml:types
 prefixes:
-  personinfo: https://w3id.org/linkml/examples/personinfo/
   linkml: https://w3id.org/linkml/
   schema: http://schema.org/
-  xsd: http://www.w3.org/2001/XMLSchema#
-
-types:
-  string:
-    uri: xsd:string
-  integer:
-    uri: xsd:integer
-  float:
-    uri: xsd:float
-  boolean:
-    uri: xsd:boolean
+default_range: string
 
 classes:
     Skippable:
@@ -36,7 +25,7 @@ classes:
         - alias  # typically just last name?
         - email
         # - role ?
-      
+
     PI:
       description: Who pays for the experiment
       is_a: Person
@@ -72,10 +61,7 @@ classes:
     StudyParticipant:
       is_a: Participant
       slots:
-      - anon_id:
-          ## TODO: might need more clarification
-          description: ID of the subject in the study (e.g. '01')
-          recommended: True  
+      - anon_id
       attributes:
         tags:
           range: Tag
@@ -230,6 +216,24 @@ classes:
           range: float
           required: false
 
+slots:
+    first_name:
+        range: string
+    last_name:
+        range: string
+    alias:
+        range: string
+    email:
+        range: string
+    id:
+        range: string
+    codename:
+        range: string
+    anon_id:
+        ## TODO: might need more clarification
+        description: ID of the subject in the study (e.g. '01')
+        recommended: True
+        range: string
 enums:
   Tag:
     permissible_values:
