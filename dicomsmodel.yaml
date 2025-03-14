@@ -15,7 +15,7 @@ classes:
         attributes:
           skip:
             range: boolean
-            default: False
+            ifabsent: boolean(false)
 
     Person:
         class_uri: schema:Person
@@ -75,9 +75,7 @@ classes:
       - age
       - weight
       - date
-      - tags:
-          range: Tag
-          multivalued: True
+      - tags
       attributes:
         participant:
           range: StudyParticipant
@@ -92,10 +90,10 @@ classes:
         - study  # a study this set was associated with at DICOM level, could be edited 
         - subject
       attributes:
-        - series:
+        series:
             range: DICOMSeries
             multivalued: True
-        - tags:
+        tags:
             description: Mostly computed based on DICOMSeries[].study_session[].tags
             range: Tag
             multivalued: True
@@ -105,14 +103,14 @@ classes:
         Collection of DICOM file(s), such as /inbox/DICOM/2025/03/11/qa/005-func-bold_task-rest_acq-p2
       is_a: Skippable
       slots:
-        - paths:  # directory or a list of files (if flat listing)
-            multivalued: True
+        - paths  # directory or a list of files
         ## may be in dicom_metadata - date
         - session
-        - dicom_metadata:
+      attributes:
+        dicom_metadata:
             description: auto-extracted/not-changed, likely what heudiconv extracts now
             range: SeqInfo
-        - study_sessions:
+        study_sessions:
             range: StudySession
             multivalued: True
 
@@ -205,11 +203,11 @@ classes:
           required: false
         time:
           description: Time of acquisition
+          # TODO: add regex for time
           range: string
           required: false
         custom:
           description: Custom data field
-          range: string
           required: false
         patient_weight:
           description: Weight of the patient
@@ -218,22 +216,20 @@ classes:
 
 slots:
     first_name:
-        range: string
     last_name:
-        range: string
     alias:
-        range: string
     email:
-        range: string
     id:
-        range: string
     codename:
-        range: string
     anon_id:
         ## TODO: might need more clarification
         description: ID of the subject in the study (e.g. '01')
         recommended: True
-        range: string
+    tags:
+      range: Tag
+      multivalued: True
+    paths:
+      multivalued: True
 enums:
   Tag:
     permissible_values:
